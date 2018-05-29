@@ -13,7 +13,11 @@ def is_login(request):
 
 # 登录函数
 def check_login(request):
-    request.session['is_login'] = 1
+    passwd = request.POST.get("passwd", "0")
+    if passwd == "root":
+        request.session['is_login'] = 1
+    else:
+        return 0
 
 
 # 注销

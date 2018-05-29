@@ -1,1 +1,0 @@
-{"req_ip": "127.0.0.1", "req_port": "8000", "req_method": "GET", "req_ip_addr": "\u672a\u77e5", "req_header": {"Host": "127.0.0.1:8000", "User_Agent": "curl/7.54.0", "Accept": "*/*", "Hello": "FFFlsg"}, "req_path": "/", "req_time": 1526980094, "get_data": {}, "post_data": {}, "cookie_data": {}}

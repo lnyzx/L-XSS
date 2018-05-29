@@ -10,20 +10,22 @@ def index(request):
     return HttpResponse(data)
 
 
-# 记录的数据接口
+# 记录的数据接口，总是返回json
 def data(request):
     data = load_all_data()
-    if is_login(request):
-        return HttpResponse(data)
-    else:
+    if not is_login(request):
         return HttpResponseRedirect('/auth/')
+    result = parse_cmd(request)
+    return HttpResponse(result, content_type="application/json")
+
 
 
 # 用户登录管理接口
 def auth(request):
-    if request.method == 'POST' and request.POST.get('logout', '0') != '1':
-        check_login(request)
-    elif request.POST.get('logout', '0') == '1':
+    if request.method == 'POST':
+        if check_login(request) == 0:
+            return HttpResponse('<script>alert("密码错误");history.go(-1);</script>')
+    elif request.GET.get('logout', '0') == '1':
         logout(request)
 
     if is_login(request):

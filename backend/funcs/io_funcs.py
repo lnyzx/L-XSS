@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import base64, glob
+import base64, glob, os
 from django.conf import settings
 
 DATA_FOLDER = settings.DATA_ROOT
@@ -41,3 +41,19 @@ def data_encrypt(data):
 # 解密函数
 def data_decrypt(data):
     return data
+
+
+# 删除data，分为根据时间戳删除和全部删除
+def delete_data(request):
+    if request.POST.get('id', '0') == "all":
+        all_file = get_data_file_name()
+        for i in all_file:
+            os.remove(i)
+        return "0"
+    else:
+        id = request.POST.get('id', '0');
+        if id.isdigit():
+            try:
+                os.remove(DATA_FOLDER + id + '.log')
+            except Exception as e:
+                pass

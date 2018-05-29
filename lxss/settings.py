@@ -123,6 +123,7 @@ STATIC_URL = '/static/'
 # static_root
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "backend/probe/"),
+    os.path.join(BASE_DIR, "backend/static/"),
     os.path.join(BASE_DIR, "frontend/dist/static"),
 ]
 

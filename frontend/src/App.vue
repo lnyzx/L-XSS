@@ -3,7 +3,6 @@
     <el-container>
       <vMenu/>
       <el-main><router-view/></el-main>
-      <el-footer>@Lnyas</el-footer>
     </el-container>
   </div>
 </template>
@@ -26,9 +25,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-.el-footer {
-  margin-right:auto;
-  margin-left: 20px;
-}
-
 </style>
