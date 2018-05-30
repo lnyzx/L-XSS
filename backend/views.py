@@ -7,7 +7,7 @@ from backend.funcs.user_funcs import *
 
 def index(request):
     data = get_data_from_req(request)
-    return HttpResponse(data)
+    return HttpResponse("Hello This is Lnyas :P")
 
 
 # 记录的数据接口，总是返回json
