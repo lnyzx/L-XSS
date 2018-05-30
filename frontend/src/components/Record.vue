@@ -106,6 +106,7 @@ export default {
   methods: {
     // 刷新数据
     reFresh () {
+      this.loading = true
       this.recordData = []
       this.getData()
     },
