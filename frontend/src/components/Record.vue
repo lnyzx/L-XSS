@@ -106,6 +106,7 @@ export default {
   methods: {
     // 刷新数据
     reFresh () {
+      document.title = "l`xss"
       this.loading = true
       this.recordData = []
       this.getData()

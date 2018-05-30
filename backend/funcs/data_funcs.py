@@ -29,7 +29,7 @@ def get_data_from_req(request):
     data['req_header'] = get_header_from_req(request)
     data['req_path'] = request.path
     data['req_time'] = int(time.time())
-    data['req_formattime'] = str(datetime.datetime.now(tz)).split('.')[0]
+    data['req_formattime'] = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     data['get_data'] = request.GET
     data['post_data'] = request.POST
     data['cookie_data'] = request.COOKIES
