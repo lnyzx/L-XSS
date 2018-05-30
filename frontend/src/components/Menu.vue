@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: 'menu',
+  name: 'vmenu',
   data () {
     return {
       new_record: 0,
@@ -88,7 +88,7 @@ export default {
       .catch(function (error) {
         console.log(error)
       })
-    setTimeout(this.fetch_record_interval(), 3000)
+    // setTimeout(this.fetch_record_interval(), 3000)
   }
 }
 </script>
