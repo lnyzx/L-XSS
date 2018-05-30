@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # # -*- coding: utf-8 -*-
 
-import time, json, re, base64, requests
+import time, json, re, base64
 from functools import reduce
 from urllib import request
 from .io_funcs import *

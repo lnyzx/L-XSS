@@ -16,6 +16,7 @@ def check_login(request):
     passwd = request.POST.get("passwd", "0")
     if passwd == "root":
         request.session['is_login'] = 1
+        return 1
     else:
         return 0
 
