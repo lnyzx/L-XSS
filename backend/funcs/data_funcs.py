@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 # # -*- coding: utf-8 -*-
 
-import time, json, re, base64
+import time, json, re, base64, datetime, pytz
 from functools import reduce
 from urllib import request
 from .io_funcs import *
 
+tz = pytz.timezone('Asia/Shanghai')
 
 # 处理请求中的参数，返回json
 def parse_cmd(request):
@@ -28,7 +29,7 @@ def get_data_from_req(request):
     data['req_header'] = get_header_from_req(request)
     data['req_path'] = request.path
     data['req_time'] = int(time.time())
-    data['req_formattime'] = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    data['req_formattime'] = str(datetime.datetime.now(tz)).split('.')[0]
     data['get_data'] = request.GET
     data['post_data'] = request.POST
     data['cookie_data'] = request.COOKIES
