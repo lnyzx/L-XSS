@@ -29,7 +29,7 @@ def get_data_from_req(request):
     data['req_header'] = get_header_from_req(request)
     data['req_path'] = request.path
     data['req_time'] = int(time.time())
-    data['req_formattime'] = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    data['req_formattime'] = datetime.datetime.fromtimestamp(int(time.time()), pytz.timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M:%S')
     data['get_data'] = request.GET
     data['post_data'] = request.POST
     data['cookie_data'] = request.COOKIES
@@ -123,6 +123,6 @@ def list_by_page(request):
     for each_file in file_names:
         this_data = load_data_from_file(each_file)
         data.append(this_data)
-    data.reverse()
+    # data.reverse()
     return json.dumps(data[((page - 1) * page_num): (((page - 1) * page_num) + page_num)])
     # return json.dumps(data)
