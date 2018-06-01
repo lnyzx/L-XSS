@@ -129,4 +129,14 @@ def list_by_page(request):
 
 # 排序data，由于不同操作系统读取文件的顺序不同，所以要按照时间戳进行排序
 def data_sort(data):
-    data.sort(cmp=None, key=lambda x:x.time, reverse=False)
+    for passnum in range(0, len(data) - 1, 1):  
+        for i in range(0, len(data) - passnum - 1, 1):  
+            if (get_reqtime(data[i]) < get_reqtime(data[i+1])):  
+                tmp = data[i+1]  
+                data[i+1] = data[i]  
+                data[i] = tmp 
+
+
+def get_reqtime(data):
+    tmp = json.loads(data)
+    return tmp['req_time']
