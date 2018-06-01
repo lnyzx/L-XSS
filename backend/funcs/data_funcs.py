@@ -123,6 +123,10 @@ def list_by_page(request):
     for each_file in file_names:
         this_data = load_data_from_file(each_file)
         data.append(this_data)
-    # data.reverse()
+    data_sort(data)
     return json.dumps(data[((page - 1) * page_num): (((page - 1) * page_num) + page_num)])
     # return json.dumps(data)
+
+# 排序data，由于不同操作系统读取文件的顺序不同，所以要按照时间戳进行排序
+def data_sort(data):
+    data.sort(cmp=None, key=lambda x:x.time, reverse=False)
