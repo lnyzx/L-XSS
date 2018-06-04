@@ -3,6 +3,7 @@ from django.shortcuts import render
 
 from backend.funcs.data_funcs import *
 from backend.funcs.user_funcs import *
+import string, random
 
 
 def index(request):
@@ -22,6 +23,7 @@ def data(request):
 
 # 用户登录管理接口
 def auth(request):
+    pass_nonce = ''.join(random.choices(string.ascii_letters + string.digits, k=15))
     if request.method == 'POST':
         if check_login(request) == 0:
             return HttpResponse('<script>alert("密码错误");history.go(-1);</script>')
@@ -31,4 +33,7 @@ def auth(request):
     if is_login(request):
         return render(request, 'index.html')
     else:
-        return render(request, 'login.html')
+        context = {}
+        context['pass_nonce'] = pass_nonce
+        request.session['pass_nonce'] = pass_nonce
+        return render(request, 'login.html', context)

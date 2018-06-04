@@ -2,6 +2,12 @@
 # # -*- coding: utf-8 -*-
 from urllib.parse import urlparse
 from django.conf import settings
+import hashlib
+
+
+def md5(strr):
+    return hashlib.md5(strr.encode('utf-8')).hexdigest()
+
 
 # 判断是否登录
 def is_login(request):
@@ -13,8 +19,10 @@ def is_login(request):
 
 # 登录函数
 def check_login(request):
+    pass_nonce = request.session['pass_nonce']
+    enc_passwd = md5(settings.MD5_PASSWD + pass_nonce)
     passwd = request.POST.get("passwd", "0")
-    if passwd == "root":
+    if passwd == enc_passwd:
         request.session['is_login'] = 1
         return 1
     else:

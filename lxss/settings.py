@@ -25,7 +25,7 @@ SECRET_KEY = '1twpo@zq=_7-n46x@txdere@x$mdy$2i)9$m#ab!_$x#lsb3le'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -135,3 +135,6 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
 # Your base_url, will used in referer check and probe's target, please change it
 BASE_URI = '127.0.0.1:8000'
+
+# password here, md5 encoded
+MD5_PASSWD = "63a9f0ea7bb98050796b649e85481845" # root
