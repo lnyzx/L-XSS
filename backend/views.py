@@ -23,7 +23,7 @@ def data(request):
 
 # 用户登录管理接口
 def auth(request):
-    pass_nonce = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(15)
+    pass_nonce = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(15))
     if request.method == 'POST':
         if check_login(request) == 0:
             return HttpResponse('<script>alert("密码错误");history.go(-1);</script>')
