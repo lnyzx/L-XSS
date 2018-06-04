@@ -106,6 +106,8 @@ export default {
   methods: {
     // 刷新数据
     reFresh () {
+      this.dataNum = this.$store.state.dataNumber
+      this.$store.state.new_record = 0
       document.title = "l`xss"
       this.loading = true
       this.recordData = []
