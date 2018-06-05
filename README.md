@@ -16,12 +16,12 @@
 
 #### login
 
-![login](E:\开发\lxss\guide\login.png)
+![login](./guide/login.png)
 
 #### encode/decode
 
-![encode](E:\开发\lxss\guide\encode.png)
+![encode](./guide/encode.png)
 
 #### record
 
-![record](E:\开发\lxss\guide\record.png)
+![record](./guide/record.png)
