@@ -71,7 +71,7 @@
               <el-button class='action' size="small" v-on:click="jsBeautify">JS Beautify</el-button>
               <el-button class='action' size="small" v-on:click="htmlBeautify">HTML Beautify</el-button>
           </el-button-group>
-          <el-button class='action' type="danger" size="small" v-on:click="execute" plain>EVAL</el-button>
+          <el-button class='action' type="danger" size="small" @click="execute" plain>EVAL</el-button>
           <el-button class='action' type="danger" size="small" v-on:click="clear" plain>CLEAR</el-button>
         </el-row>
       </el-col>
@@ -293,7 +293,7 @@ export default {
     },
     execute () {
         try {
-            let result = eval(this.text.input.split(','))
+            let result = eval(this.text.input)
             this.output(result)
         } catch (e) {}
     }
