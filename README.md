@@ -8,4 +8,4 @@
 
 
 
-使用时要更改 settings.py 里的 BASE_URI 为部署的 url ，MD5_PASSWD 为md5加密后的密码，最好关闭 debug 模式
+使用时要更改 settings.py 里的 BASE_URI 为部署的 url和端口(例如部署在www.example.com则填写www.example.com:None，有端口则填端口) ，MD5_PASSWD 为md5加密后的密码，最好关闭 debug 模式
