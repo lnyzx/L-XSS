@@ -85,6 +85,7 @@
         :page-size="pageNumber"
         @current-change="changeCurrentPage">
       </el-pagination>
+      <el-tag type="warning" size="medium" id="recodenumber">总记录数：{{ dataNum }}</el-tag>
     </div>
   </div>
 </template>
