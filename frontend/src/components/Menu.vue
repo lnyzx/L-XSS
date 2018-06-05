@@ -78,12 +78,12 @@ export default {
       document.title = '【' + this.$store.state.new_record + '】条新记录'
     }
   },
-  // 初始获取最大的time
+  // 初始获取最大的time，排序逻辑由后端完成
   mounted () {
     this.$store.state.new_record = 0
     this.$axios.get('/data/?cmd=listallid')
       .then(response => {
-        this.maxTime = response.data[response.data.length - 1].id
+        this.maxTime = response.data[0].id
         console.log(this.maxTime)
       })
       .catch(function (error) {

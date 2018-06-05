@@ -95,14 +95,15 @@ def load_all_data():
     for each_file in file_names:
         this_data = load_data_from_file(each_file)
         data.append(this_data)
-    return json.dumps(data)
+    data_sort(data)
+    return data
 
 # 获取所有记录的id(即时间戳)
 def list_all_id(request):
     data = []
-    file_names = get_data_file_name()
-    for each_file in file_names:
-        this_data = json.loads(load_data_from_file(each_file))
+    all_data = load_all_data()
+    for this_data in all_data:
+        this_data = json.loads(this_data)
         this_data_id = this_data['req_time']
         this_data_ip = this_data['req_ip']
         this_data_addr = this_data['req_ip_addr']
@@ -112,6 +113,17 @@ def list_all_id(request):
         outdata['addr'] = this_data_addr
         data.append(outdata)
     return json.dumps(data)
+    # for each_file in file_names:
+    #     this_data = json.loads(load_data_from_file(each_file))
+    #     this_data_id = this_data['req_time']
+    #     this_data_ip = this_data['req_ip']
+    #     this_data_addr = this_data['req_ip_addr']
+    #     outdata = {}
+    #     outdata['id'] = this_data_id
+    #     outdata['ip'] = this_data_ip
+    #     outdata['addr'] = this_data_addr
+    #     data.append(outdata)
+    # return json.dumps(data)
 
 
 # 根据页码和每页数量得到记录
