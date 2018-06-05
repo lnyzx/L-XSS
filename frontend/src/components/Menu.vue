@@ -84,6 +84,7 @@ export default {
     this.$axios.get('/data/?cmd=listallid')
       .then(response => {
         this.maxTime = response.data[response.data.length - 1].id
+        console.log(this.maxTime)
       })
       .catch(function (error) {
         console.log(error)
