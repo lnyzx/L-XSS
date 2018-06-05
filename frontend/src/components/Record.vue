@@ -246,10 +246,6 @@ export default {
             var bv = agent.match(/MSIE\s+([^;)]+)+/i);
             browser = "IE";
             browser_version = bv[1]; //获取IE的版本号
-        } else if (agent.indexOf("OPR") > 0) {
-            var bv = agent.match(/OPR\/([\d\.]+)/);
-            browser = "Opera";
-            browser_version = bv[1];
         } else if (agent.indexOf("Edge") > 0) {
             //win10 Edge浏览器 添加了chrome内核标记 在判断Chrome之前匹配
             var bv = agent.match(/Edge\/([\d\.]+)/);
