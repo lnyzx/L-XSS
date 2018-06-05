@@ -136,7 +136,7 @@ export default {
           label: 'SHA512'
         }
       ],
-      value: '',
+      value: 'md5',
       lastAction: undefined
     }
   },
@@ -151,6 +151,7 @@ export default {
     },
     clear () {
       this.text.input = ""
+      this.text.output = ""
     },
     hashencode () {
       if (this.value in hashTable) {
