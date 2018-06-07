@@ -133,6 +133,10 @@ DATA_ROOT = os.path.join(BASE_DIR, "backend/data/")
 # save session in cache
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
+SESSION_COOKIE_AGE = 60 * 30 # 30分钟
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True # 关闭浏览器，则COOKIE失效
+
 # Your base_url, will used in referer check and probe's target, please change it
 BASE_URI = '127.0.0.1:8000'
 
