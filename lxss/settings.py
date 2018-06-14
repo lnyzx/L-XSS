@@ -135,10 +135,10 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
 SESSION_COOKIE_AGE = 60 * 30 # 30分钟
 SESSION_SAVE_EVERY_REQUEST = True
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True # 关闭浏览器，则COOKIE失效
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True # 关闭浏览器，则COOKIE失效，貌似没有用
 
 # Your base_url, will used in referer check and probe's target, please change it
 BASE_URI = '127.0.0.1:8000'
 
-# password here, md5 encoded
-MD5_PASSWD = "5cfe6411140e7aa4ecaa19bc84682efc" # root
+# password here, md5(passwd)
+MD5_PASSWD = "63a9f0ea7bb98050796b649e85481845" # root

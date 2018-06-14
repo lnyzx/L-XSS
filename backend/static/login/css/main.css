@@ -3,25 +3,16 @@
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
-@font-face {
-  font-family: SourceSansPro-Regular;
-  src: url('../fonts/source-sans-pro/SourceSansPro-Regular.ttf'); 
-}
-
-@font-face {
+/*@font-face {
   font-family: SourceSansPro-Bold;
   src: url('../fonts/source-sans-pro/SourceSansPro-Bold.ttf'); 
-}
+}*/
 
-@font-face {
+/*@font-face {
   font-family: SourceSansPro-SemiBold;
   src: url('../fonts/source-sans-pro/SourceSansPro-SemiBold.ttf'); 
-}
+}*/
 
-@font-face {
-  font-family: JosefinSans-Bold;
-  src: url('../fonts/JosefinSans/JosefinSans-Bold.ttf'); 
-}
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/

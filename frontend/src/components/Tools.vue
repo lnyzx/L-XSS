@@ -8,14 +8,16 @@
           placeholder="Input Here"
           v-model="text.input"
           resize="none"
-          clearable>
+          clearable
+          v-on:input="convert"
+          >
         </el-input>
       </el-col>
       <el-col :span="5">
         <el-row>
           <el-button-group>
             <el-button class='action' size="medium" v-on:click="urlencode">URIEncode</el-button>
-            <el-button class='action' size="medium" v-on:click="urlallencode">URICEncode</el-button>
+            <el-button class='action' size="medium" v-on:click="urlallencode">URIEncodeC</el-button>
             <el-button class='action' size="medium" v-on:click="urldecode">URIDecode</el-button>
           </el-button-group>
         </el-row>
@@ -118,6 +120,7 @@ export default {
           input: "",
           output: ""
       },
+      lastAction: undefined,
       hashtype: [
         {
           value: 'md5',
@@ -136,16 +139,17 @@ export default {
           label: 'SHA512'
         }
       ],
-      value: 'md5',
-      lastAction: undefined
+      value: 'md5'
     }
   },
   methods: {
     htmlBeautify () {
+      this.lastAction = this.htmlBeautify
       let result = js_beautify.html(this.text.input, { indent_size: 2, space_in_empty_paren: true })
       this.output(result)
     },
     jsBeautify () {
+      this.lastAction = this.jsBeautify
       let result = js_beautify.js(this.text.input, { indent_size: 2, space_in_empty_paren: true })
       this.output(result)
     },
@@ -154,78 +158,76 @@ export default {
       this.text.output = ""
     },
     hashencode () {
+      this.lastAction = this.hashencode
       if (this.value in hashTable) {
         let result = eval('hashTable.'+ this.value + '("' + this.text.input + '")')
         this.output(result)
       }
     },
-    copyData () {
-        return this.text.output
-    },
     output (value) {
-        this.text.output = this.magic(value)
+      this.text.output = this.magic(value)
     },
     convert () {
-        if(this.lastAction && this.lastAction instanceof Function) {
-            this.lastAction()
-        }
+      if(this.lastAction && this.lastAction instanceof Function) {
+        this.lastAction()
+      }
     },
     b64encode () {
-        this.lastAction = this.b64encode
-        this.output(base64.stringify(utf8.parse(this.text.input)))
+      this.lastAction = this.b64encode
+      this.output(base64.stringify(utf8.parse(this.text.input)))
     },
     b64decode () {
-        let result
-        this.lastAction = this.b64decode
-        let bytes = base64.parse(this.text.input)
-        try {
-            result = utf8.stringify(bytes)
-        } catch (e) {
-            result = latin1.stringify(bytes)
-        }
-        this.output(result)
+      let result
+      this.lastAction = this.b64decode
+      let bytes = base64.parse(this.text.input)
+      try {
+          result = utf8.stringify(bytes)
+      } catch (e) {
+          result = latin1.stringify(bytes)
+      }
+      this.output(result)
     },
     hexencode () {
-        this.lastAction = this.hexencode
-        let result = '0x' + hex.stringify(utf8.parse(this.text.input))
-        this.output(result)
+      this.lastAction = this.hexencode
+      let result = '0x' + hex.stringify(utf8.parse(this.text.input))
+      this.output(result)
     },
     hexdecode () {
-        let result
-        this.lastAction = this.hexdecode
-        let enc = this.text.input
-        if (enc.startsWith('0x') || enc.startsWith('0X')) {
-            enc = enc.substr(2)
-        }
-        let bytes = hex.parse(enc)
-        try {
-            result = utf8.stringify(bytes)
-        } catch (e) {
-            result = latin1.stringify(bytes)
-        }
-        this.output(result)
+      let result
+      this.lastAction = this.hexdecode
+      let enc = this.text.input
+      if (enc.startsWith('0x') || enc.startsWith('0X')) {
+          enc = enc.substr(2)
+      }
+      let bytes = hex.parse(enc)
+      try {
+          result = utf8.stringify(bytes)
+      } catch (e) {
+          result = latin1.stringify(bytes)
+      }
+      this.output(result)
     },
     urlencode () {
-        this.lastAction = this.urlencode
-        this.output(encodeURIComponent(this.text.input))
+      this.lastAction = this.urlencode
+      this.output(encodeURIComponent(this.text.input))
     },
     urldecode () {
-        this.lastAction = this.urldecode
-        this.output(decodeURIComponent(this.text.input))
+      this.lastAction = this.urldecode
+      this.output(decodeURIComponent(this.text.input))
     },
     urlallencode () {
-        this.lastAction = this.urlallencode
-        this.output(urlencode(this.text.input))
+      this.lastAction = this.urlallencode
+      this.output(urlencode(this.text.input))
     },
     html10encode () {
-        this.lastAction = this.html10encode
-        let result = this.text.input.split('').map(m => "&#" + m.charCodeAt() + ";").join('')
-        this.output(result)
+      this.lastAction = this.html10encode
+      let result = this.text.input.split('').map(m => "&#" + m.charCodeAt() + ";").join('')
+      this.output(result)
     },
     html10decode () {
-        this.lastAction = this.html10decode
-        let result = this.text.input.replace(/&#(\d+);?/g, (match, i) => String.fromCharCode(parseInt(i)))
-        this.output(result)
+      this.lastAction = this.html10decode
+      let result = this.text.input.replace(/&#(\d+);?/g, (match, i) => String.fromCharCode(parseInt(i)))
+      this.output(result)
     },
     htmlspecialchars () {
       this.lastAction = this.htmlspecialchars
