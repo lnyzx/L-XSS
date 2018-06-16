@@ -127,8 +127,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "frontend/dist/static"),
 ]
 
-PROBE_ROOT = os.path.join(BASE_DIR, "backend/probe/")
+
 DATA_ROOT = os.path.join(BASE_DIR, "backend/data/")
+PROBE_ROOT = os.path.join(BASE_DIR, "frontend/dist/")
+TEMPLATES_ROOT = os.path.join(BASE_DIR, "backend/static/templates/")
 
 # save session in cache
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'

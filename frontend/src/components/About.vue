@@ -1,9 +1,10 @@
 <template>
   <div class="about">
     <el-card class="box-card">
-      <h3>Hello this is Lnyas</h3>
-      <div>It's a very simple tool</div>
-      and wish you have fun with it !
+      <h3>Hello this is <a href="http://www.au1ge.xyz/" target="_blank">Lnyas</a></h3>
+      <div>It's a very simple tool & toy</div>
+      <br>
+      Wish you have fun with it ! :P
     </el-card>
   </div>
 </template>

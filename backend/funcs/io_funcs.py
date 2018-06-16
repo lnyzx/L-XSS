@@ -5,6 +5,8 @@ import base64, glob, os
 from django.conf import settings
 
 DATA_FOLDER = settings.DATA_ROOT
+PROBE_FOLDER = settings.PROBE_ROOT
+TEMPLATES_FOLDER = settings.TEMPLATES_ROOT
 
 
 def base64_encode(data):
@@ -57,3 +59,38 @@ def delete_data(request):
                 os.remove(DATA_FOLDER + id + '.log')
             except Exception as e:
                 pass
+
+
+# 从dist文件夹中取得所有probe的名字
+def get_all_probes():
+    file_names = [name for name in os.listdir(PROBE_FOLDER) if name.endswith('.js')]
+    return file_names
+
+
+# 写入probe
+def wirte_probe2file(name, content):
+    content = base64.b64decode(content).decode('utf-8')
+    probe_file_name = os.path.join(PROBE_FOLDER, name + '.js')
+    with open(probe_file_name, 'w') as f:
+        f.write(content)
+    return 1
+
+
+# 删除probe
+def delete_probe(request):
+    # pass
+    if request.POST.get('name', '0') == "all":
+        for probes in glob.glob(PROBE_FOLDER + '*.js'):
+            os.remove(probes)
+        return "1"
+    else:
+        name = request.POST.get('name', '0');
+        probe_file_name = os.path.join(PROBE_FOLDER, name)
+        os.remove(probe_file_name)
+        return 1
+
+
+# 获取所有templates文件名
+def get_all_templates():
+    file_names = [name for name in os.listdir(TEMPLATES_FOLDER)]
+    return file_names

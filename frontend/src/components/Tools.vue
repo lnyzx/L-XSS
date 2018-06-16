@@ -1,7 +1,7 @@
 <template>
   <div class="encode">
     <el-row :gutter="20" type="flex" justify="center">
-      <el-col :span="8">
+      <el-col :span="8" class="right-col">
         <el-input
           type="textarea"
           :rows="30"
@@ -13,7 +13,7 @@
           >
         </el-input>
       </el-col>
-      <el-col :span="5">
+      <el-col :span="5" class="button-col">
         <el-row>
           <el-button-group>
             <el-button class='action' size="medium" v-on:click="urlencode">URIEncode</el-button>
@@ -77,7 +77,7 @@
           <el-button class='action' type="danger" size="small" v-on:click="clear" plain>CLEAR</el-button>
         </el-row>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="8" class="left-col">
         <el-input
           type="textarea"
           :rows="30"
@@ -88,7 +88,6 @@
         </el-input>
       </el-col>
     </el-row>
-
   </div>
 </template>
 
@@ -323,6 +322,10 @@ export default {
     background-color: #FEF6E0;
     color: #D7B040;
     border-color:#ffd04b;
+  }
+
+  .button-col {
+    min-width: 390px;
   }
 
 </style>

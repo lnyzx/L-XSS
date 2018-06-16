@@ -140,12 +140,12 @@ export default {
               message: '删除成功!'
             });
           })
-      }).catch(() => {
-        this.$message({
-          type: 'info',
-          message: '已取消删除'
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          })
         })
-      })
     },
     // 删除选中的一条记录
     deleteSingle () {

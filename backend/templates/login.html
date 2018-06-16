@@ -42,7 +42,6 @@
 			var pass = document.getElementById('pass').value;
 			var md5_pass = document.getElementById('md5_pass');
 			tmp = md5(pass) + pass_nonce;
-			console.log(tmp);
 			var md5_passwd = md5(tmp);
 			md5_pass.value = md5_passwd;
 			return true

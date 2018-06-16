@@ -3,20 +3,23 @@
 
 import time, json, re, base64, datetime, pytz
 from functools import reduce
-from urllib import request
+from urllib import request as req
 from .io_funcs import *
 
 tz = pytz.timezone('Asia/Shanghai')
 
 # 处理请求中的参数，返回json
-def parse_cmd(request):
-    cmd_list = {
-        'listallid': list_all_id(request),
-        'list': list_by_page(request),
-        'delete': delete_data(request),
-        0: 0,
-    }
-    return cmd_list.get(request.GET.get('cmd', 0))
+def parse_cmd_data(request):
+    cmd = request.GET.get('cmd', 0)
+    if (cmd == 'listallid'):
+        return list_all_id(request)
+    elif (cmd == 'list'):
+        return list_by_page(request)
+    elif (cmd == 'delete'):
+        return delete_data(request)
+    else:
+        return '0'
+
 
 # 整理需要记录的信息，同时存储文件
 def get_data_from_req(request):
@@ -68,7 +71,7 @@ def get_ip_addr(ip):
         return '局域网'
     try:
         apiurl = "http://www.ip138.com/ips138.asp?ip=%s&action=1" % ip
-        content = request.urlopen(apiurl).read().decode("GBK")
+        content = req.urlopen(apiurl).read().decode("GBK")
         match_compile = re.compile(r'<td align="center"><ul class="ul1"><li>.*?</li>')
         ip_addr = re.findall(match_compile, content)[0][44:-5]
     except Exception as e:
@@ -113,17 +116,6 @@ def list_all_id(request):
         outdata['addr'] = this_data_addr
         data.append(outdata)
     return json.dumps(data)
-    # for each_file in file_names:
-    #     this_data = json.loads(load_data_from_file(each_file))
-    #     this_data_id = this_data['req_time']
-    #     this_data_ip = this_data['req_ip']
-    #     this_data_addr = this_data['req_ip_addr']
-    #     outdata = {}
-    #     outdata['id'] = this_data_id
-    #     outdata['ip'] = this_data_ip
-    #     outdata['addr'] = this_data_addr
-    #     data.append(outdata)
-    # return json.dumps(data)
 
 
 # 根据页码和每页数量得到记录

@@ -3,6 +3,7 @@ from django.shortcuts import render
 
 from backend.funcs.data_funcs import *
 from backend.funcs.user_funcs import *
+from backend.funcs.probe_funcs import *
 import string, random
 
 
@@ -16,9 +17,8 @@ def data(request):
     data = load_all_data()
     if not is_login(request):
         return HttpResponseRedirect('/auth/')
-    result = parse_cmd(request)
+    result = parse_cmd_data(request)
     return HttpResponse(result, content_type="application/json")
-
 
 
 # 用户登录管理接口
@@ -37,3 +37,11 @@ def auth(request):
         context['pass_nonce'] = pass_nonce
         request.session['pass_nonce'] = pass_nonce
         return render(request, 'login.html', context)
+
+
+# probe接口，提供在线probe查询，template查询，template加载，probe生成
+def probe(request):
+    # if not is_login(request):
+    #     return HttpResponseRedirect('/auth/')
+    result = parse_cmd_probe(request)
+    return HttpResponse(result, content_type="application/json")
