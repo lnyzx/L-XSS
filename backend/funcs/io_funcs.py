@@ -107,5 +107,5 @@ def delete_waf(strr):
             return 1
         else:
             return 0
-     else:
+    else:
         return 1
