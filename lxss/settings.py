@@ -129,7 +129,7 @@ STATICFILES_DIRS = [
 
 
 DATA_ROOT = os.path.join(BASE_DIR, "backend/data/")
-PROBE_ROOT = os.path.join(BASE_DIR, "frontend/dist/")
+PROBE_ROOT = os.path.join(BASE_DIR, "frontend/dist/static/")
 TEMPLATES_ROOT = os.path.join(BASE_DIR, "backend/static/templates/")
 
 # save session in cache

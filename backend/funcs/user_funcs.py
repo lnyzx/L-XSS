@@ -42,7 +42,10 @@ def check_referer(request):
     req_referer = request.META.get('HTTP_REFERER')
     req_referer_host = urlparse(req_referer).hostname
     req_referer_port = urlparse(req_referer).port
-    req_referer = req_referer_host + ":" + str(req_referer_port)
+    if req_referer_port:
+        req_referer = req_referer_host + ":" + str(req_referer_port)
+    else:
+        req_referer = req_referer_host
     if this_host == req_referer:
         return True
     else:

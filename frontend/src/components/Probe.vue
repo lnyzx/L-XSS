@@ -105,7 +105,7 @@
             </el-table>
           </el-card>
         </el-row>
-        <el-row type="flex" :gutter="15">
+        <el-row>
           <el-card shadow="never">
             <b>Online Probe</b>
             <el-col>
@@ -263,7 +263,7 @@ export default {
     insertProbe (name) {
       name = name + '.js'
       var a = {}
-      var this_url = this.thisDomain + name
+      var this_url = this.thisDomain + 'static/' + name
       a['probeurl'] = this_url
       a['probename'] = name
       a['probelink'] = '<script src="' + this_url + '"></scr'+'ipt>'
@@ -310,7 +310,7 @@ export default {
         .then(response => {
           for (var i = 0; i < response.data.length; i++) {
             var a = {}
-            var this_url = this.thisDomain + response.data[i]
+            var this_url = this.thisDomain + 'static/' + response.data[i]
             a['probeurl'] = this_url
             a['probename'] = response.data[i]
             a['probelink'] = '<script src="' + this_url + '"></scr'+'ipt>'

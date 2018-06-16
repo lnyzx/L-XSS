@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import base64, glob, os
+import base64, glob, os, re
 from django.conf import settings
 
 DATA_FOLDER = settings.DATA_ROOT
@@ -53,7 +53,7 @@ def delete_data(request):
             os.remove(i)
         return "0"
     else:
-        id = request.POST.get('id', '0');
+        id = request.POST.get('id', '0')
         if id.isdigit():
             try:
                 os.remove(DATA_FOLDER + id + '.log')
@@ -73,7 +73,7 @@ def wirte_probe2file(name, content):
     probe_file_name = os.path.join(PROBE_FOLDER, name + '.js')
     with open(probe_file_name, 'w') as f:
         f.write(content)
-    return 1
+    return "1"
 
 
 # 删除probe
@@ -84,13 +84,25 @@ def delete_probe(request):
             os.remove(probes)
         return "1"
     else:
-        name = request.POST.get('name', '0');
-        probe_file_name = os.path.join(PROBE_FOLDER, name)
-        os.remove(probe_file_name)
-        return 1
+        name = request.POST.get('name', '0')
+        if (delete_waf(name) == 0):
+            probe_file_name = os.path.join(PROBE_FOLDER, name)
+            try:
+                os.remove(probe_file_name)
+            except Exception as e:
+                pass
+        return "1"
 
 
 # 获取所有templates文件名
 def get_all_templates():
     file_names = [name for name in os.listdir(TEMPLATES_FOLDER)]
     return file_names
+
+
+# 防止任意文件删除
+def delete_waf(strr):
+    if re.search('[^a-zA-Z0-9_-]', strr):
+        return 1
+    else:
+        return 0
