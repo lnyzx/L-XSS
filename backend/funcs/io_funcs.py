@@ -102,7 +102,10 @@ def get_all_templates():
 
 # 防止任意文件删除
 def delete_waf(strr):
-    if re.search('[^a-zA-Z0-9_-]', strr):
+    if strr.endswith('.js'):
+        if re.search('[^a-zA-Z0-9_-]', strr.split('.js')[0]):
+            return 1
+        else:
+            return 0
+     else:
         return 1
-    else:
-        return 0

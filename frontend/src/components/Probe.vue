@@ -110,6 +110,7 @@
             <b>Online Probe</b>
             <el-col>
               <el-table
+                v-loading="loading"
                 ref="singleTable"
                 :data="probesData"
                 highlight-current-row
@@ -199,6 +200,7 @@ export default {
       ajaxvalue: 'Content-Type',
       Templates: [],
       probesData: [],
+      loading: true,
       thisDomain: '',
       probeName: '',
       templatevalue: 'Templates',
@@ -316,6 +318,7 @@ export default {
             a['probelink'] = '<script src="' + this_url + '"></scr'+'ipt>'
             this.probesData.push(a)
           }
+          this.loading = false
         })
         .catch(function (error) {
           console.log(error)
