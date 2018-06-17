@@ -361,7 +361,6 @@ export default {
         })
         this.$axios.post('/probe/?cmd=deleteprobe', postData)
           .then(response => {
-            console.log(this.currentRow)
             this.probesData.splice(this.currentRow.index, 1)
             this.$message({
               type: 'success',

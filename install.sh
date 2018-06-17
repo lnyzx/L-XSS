@@ -24,7 +24,7 @@ read host
 echo ${host}
 
 
-sed -e "s/DEBUG = True/DEBUG = False/g;/^MD5_PASSWD.*/s//MD5_PASSWD = '${md5passwd}'/g;/^BASE_URI.*/s//BASE_URI = '${host}'/g;/^SECRET_KEY.*/s//SECRET_KEY = '${secretkey}'/g" lxss/settings.py > settings.py
+sed -e "s/DEBUG = False/DEBUG = True/g;/^MD5_PASSWD.*/s//MD5_PASSWD = '${md5passwd}'/g;/^BASE_URI.*/s//BASE_URI = '${host}'/g;/^SECRET_KEY.*/s//SECRET_KEY = '${secretkey}'/g" lxss/settings.py > settings.py
 cp settings.py lxss/settings.py
 rm settings.py
 
