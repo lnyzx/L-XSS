@@ -11,7 +11,7 @@
 ```
 git clone https://github.com/zxyxx/L-XSS.git lxss
 cd lxss
-chmod +x install.sh & chmod +x start.sh
+chmod +x install.sh && chmod +x start.sh
 ```
 
 如果直接用 Python 启动：
