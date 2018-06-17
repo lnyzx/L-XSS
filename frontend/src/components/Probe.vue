@@ -70,7 +70,7 @@
             </el-col>
             <el-col>
               <el-input placeholder="probe-name" v-model="probeName" size="medium">
-                <template slot="prepend">{{ thisDomain }}</template>
+                <template slot="prepend">{{ thisDomain }}static/</template>
                 <template slot="append">.js</template>
               </el-input>
             </el-col>
