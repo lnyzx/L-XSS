@@ -2,7 +2,7 @@
 
 功能性 XSS 平台
 
-参考了蓝莲花的 XSS 平台和余弦的 xsso r以及 ph 师傅的 playground
+参考了蓝莲花的 XSS 平台和余弦的 xssor 以及 ph 师傅的 playground
 
 ### 安装和部署
 
