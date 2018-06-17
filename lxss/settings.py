@@ -143,4 +143,4 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True # 关闭浏览器，则COOKIE失效，貌
 BASE_URI = '127.0.0.1:8000'
 
 # password here, md5(passwd)
-MD5_PASSWD = "63a9f0ea7bb98050796b649e85481845" # root
+MD5_PASSWD = '63a9f0ea7bb98050796b649e85481845' # root
