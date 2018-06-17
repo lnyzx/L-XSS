@@ -39,25 +39,25 @@
       <el-table-column
         label="时间"
         prop="time"
-        width="200"
+        width="180"
         sortable>
       </el-table-column>
       <el-table-column
         label="ip"
         prop="ip"
-        width="150"
+        width="140"
         sortable>
       </el-table-column>
       <el-table-column
         label="来源"
         prop="addr"
-        width="350"
+        width="300"
         sortable>
       </el-table-column>
       <el-table-column
         label="客户端"
         prop="client"
-        width="350"
+        width="290"
         sortable>
       </el-table-column>
       <el-table-column

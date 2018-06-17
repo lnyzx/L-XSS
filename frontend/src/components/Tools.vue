@@ -325,7 +325,7 @@ export default {
   }
 
   .button-col {
-    min-width: 390px;
+    min-width: 410px;
   }
 
 </style>

@@ -80,7 +80,7 @@
         </el-card>
       </el-col>
 
-      <el-col :span="8" class="right-col">
+      <el-col :span="9" class="right-col">
         <el-row>
           <el-card shadow="never">
             <b>CheatSheet</b>
