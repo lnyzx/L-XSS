@@ -212,6 +212,11 @@ export default {
         cheatname: 'Lnyas\'s cheatsheet',
         cheatdesc: 'Personal note'
       },
+      {
+        cheaturl: 'https://html5sec.org/',
+        cheatname: 'HTML5Sec',
+        cheatdesc: 'HTML5 Security cheatsheet'
+      },
       ]
     }
   },
@@ -234,6 +239,7 @@ export default {
       this.$axios.get(template_url)
         .then(response => {
           var result = response.data.replace("%example-url%", this.thisDomain)
+          result = result.replace("%target-url%", this.url)
           this.output(result)
         })
         .catch(function (error) {
