@@ -14,13 +14,18 @@ cp -r backend/static/cheatsheet frontend/dist/static/
 cp -r backend/static/templates frontend/dist/static/
 echo "[!] generate django secret-key..."
 secretkey=`cat /proc/sys/kernel/random/uuid`
+echo ${secretkey}
 echo "[+] Please input your password:"
 read passwd
 md5passwd=`echo -n ${passwd}|md5sum|cut -d ' ' -f1`
+echo ${md5passwd}
 echo "[+] Please input your host (just like 'xss.example.com'):"
 read host
+echo ${host}
 
 
-sed -e "s/DEBUG = True/DEBUG = False/g;/^MD5_PASSWD.*'$/s//MD5_PASSWD = ${md5passwd}/g;/^BASE_URI.*'$/s//BASE_URI = '${host}'/g;/^SECRET_KEY.*'$/s//SECRET_KEY = '${secretkey}'/g" lxss/settings.py
+sed -e "s/DEBUG = True/DEBUG = False/g;/^MD5_PASSWD.*/s//MD5_PASSWD = '${md5passwd}'/g;/^BASE_URI.*/s//BASE_URI = '${host}'/g;/^SECRET_KEY.*/s//SECRET_KEY = '${secretkey}'/g" lxss/settings.py > settings.py
+cp settings.py lxss/settings.py
+rm settings.py
 
 echo "[!] install done, use start.sh or \`python3 manage.py runserver\` to start it"
