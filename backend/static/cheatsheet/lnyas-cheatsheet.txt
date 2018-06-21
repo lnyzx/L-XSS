@@ -1,3 +1,5 @@
 meta refresh:
 <meta http-equiv="refresh" content="0; url=http://example.com/">
 
+meta csp:
+<meta http-equiv="Content-Seurity-Policy" content="script-src 'nonce-123'">
