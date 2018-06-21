@@ -2,4 +2,7 @@ meta refresh:
 <meta http-equiv="refresh" content="0; url=http://example.com/">
 
 meta csp:
-<meta http-equiv="Content-Seurity-Policy" content="script-src 'nonce-123'">
+<meta http-equiv="Content-Security-Policy" content="script-src 'nonce-123'">
+
+php:filter:
+php://filter/read=convert.base64-encode/resource=php://input

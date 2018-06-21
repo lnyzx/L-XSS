@@ -147,7 +147,7 @@ export default function () {
   		}
   		var _jq = '$.' + method.toLowerCase()
  + '("' + old_action + '",{' + jq_param + '},function(result){\n';
-  		_jq += '  // callback func\n';
+  		_jq += '  (new Image()).src="' + window.location.protocol + '//' + window.location.host + '/?data="+escape(result);\n';
   		_jq += '});'
   		return _jq
   	}
