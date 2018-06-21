@@ -70,6 +70,16 @@
         </el-row>
         <el-row>
           <el-button-group>
+              <el-button class='action' size="small" v-on:click="js8encode">JS8en</el-button>
+              <el-button class='action' size="small" v-on:click="js8decode">JS8de</el-button>
+          </el-button-group>
+          <el-button-group>
+              <el-button class='action' size="small" v-on:click="js16encode">JS16en</el-button>
+              <el-button class='action' size="small" v-on:click="js16decode">JS16de</el-button>
+          </el-button-group>
+        </el-row>
+        <el-row>
+          <el-button-group>
               <el-button class='action' size="small" v-on:click="jsBeautify">JS Beautify</el-button>
               <el-button class='action' size="small" v-on:click="htmlBeautify">HTML Beautify</el-button>
           </el-button-group>
