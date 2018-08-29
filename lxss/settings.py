@@ -46,7 +46,7 @@ MIDDLEWARE = [
     # 'django.middleware.csrf.CsrfViewMiddleware',#关闭csrf验证
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',关闭X-Frame-Opions
     'backend.auth_middle.RefererMiddleware',
 ]
 
