@@ -232,6 +232,7 @@ export default {
     },
     // 根据client判断操作系统，浏览器版本，from firesun
     get_client_info (agent) {
+        if (agent == null) {return null};
         var browser = "未知浏览器";
         var browser_version = "";
         if (agent.indexOf("Firefox/") > 0) {
