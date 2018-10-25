@@ -243,6 +243,10 @@ export default {
             var bv = agent.match(/Maxthon\/([\d\.]+)/);
             browser = "傲游";
             browser_version = bv[1];
+        } else if (agent.indexOf("curl") > 0) {
+            var bv = agent.match(/curl\/([\d\.]+)/);
+            browser = "curl";
+            browser_version = bv[1];
         } else if (agent.indexOf("MSIE") > 0) {
             var bv = agent.match(/MSIE\s+([^;)]+)+/i);
             browser = "IE";
@@ -276,6 +280,7 @@ export default {
         else if (agent.match(/win/i) && agent.match(/nt 5/i)) os = 'Windows 2000';
         else if (agent.match(/win/i) && agent.match(/nt/i)) os = 'Windows NT';
         else if (agent.match(/win/i) && agent.match(/32/i)) os = 'Windows 32';
+        else if (agent.match(/Mac OS X/i)) os = 'Mac OS X';
         else if (agent.match(/linux/i)) os = 'Linux';
         else if (agent.match(/unix/i)) os = 'Unix';
         else if (agent.match(/sun/i) && agent.match(/os/i)) os = 'SunOS';
