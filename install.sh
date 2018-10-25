@@ -6,6 +6,7 @@ echo "[!] Welcome to Lnyas's XSS platform ..."
 echo "[!] If you want to know more about install, please see READNE.md ..."
 echo "[!] start install ..."
 echo "[!] chmod and copy static file ..."
+mkdir backend/data/
 chmod -R 777 backend/data/
 chmod -R 777 frontend/dist/static
 
