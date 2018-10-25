@@ -235,33 +235,33 @@ export default {
         if (agent == null) {return null};
         var browser = "未知浏览器";
         var browser_version = "";
-        if (agent.indexOf("Firefox/") > 0) {
+        if (agent.indexOf("Firefox/") >= 0) {
             var bv = agent.match(/Firefox\/([^;)]+)+/i);
             browser = "Firefox";
             browser_version = bv[1]; //获取火狐浏览器的版本号
-        } else if (agent.indexOf("Maxthon") > 0) {
+        } else if (agent.indexOf("Maxthon") >= 0) {
             var bv = agent.match(/Maxthon\/([\d\.]+)/);
             browser = "傲游";
             browser_version = bv[1];
-        } else if (agent.indexOf("curl") > 0) {
+        } else if (agent.indexOf("curl") >= 0) {
             browser = "curl";
-        } else if (agent.indexOf("python") > 0) {
+        } else if (agent.indexOf("python") >= 0) {
             browser = "python";
-        } else if (agent.indexOf("MSIE") > 0) {
+        } else if (agent.indexOf("MSIE") >= 0) {
             var bv = agent.match(/MSIE\s+([^;)]+)+/i);
             browser = "IE";
             browser_version = bv[1]; //获取IE的版本号
-        } else if (agent.indexOf("Edge") > 0) {
+        } else if (agent.indexOf("Edge") >= 0) {
             //win10 Edge浏览器 添加了chrome内核标记 在判断Chrome之前匹配
             var bv = agent.match(/Edge\/([\d\.]+)/);
             browser = "Edge";
             browser_version = bv[1];
-        } else if (agent.indexOf("Chrome") > 0) {
+        } else if (agent.indexOf("Chrome") >= 0) {
             var bv = agent.match(/Chrome\/([\d\.]+)/);
 
             browser = "Chrome";
             browser_version = bv[1]; //获取google chrome的版本号
-        } else if (agent.indexOf('rv:') > 0 && agent.indexOf('Gecko') > 0) {
+        } else if (agent.indexOf('rv:') >= 0 && agent.indexOf('Gecko') > 0) {
             var bv = agent.match(/rv:([\d\.]+)/);
             browser = "IE";
             browser_version = bv[1];
