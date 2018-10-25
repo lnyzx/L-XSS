@@ -244,9 +244,9 @@ export default {
             browser = "傲游";
             browser_version = bv[1];
         } else if (agent.indexOf("curl") > 0) {
-            var bv = agent.match(/curl\/([\d\.]+)/);
             browser = "curl";
-            browser_version = bv[1];
+        } else if (agent.indexOf("python") > 0) {
+            browser = "python";
         } else if (agent.indexOf("MSIE") > 0) {
             var bv = agent.match(/MSIE\s+([^;)]+)+/i);
             browser = "IE";
