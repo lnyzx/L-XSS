@@ -16,21 +16,19 @@
       <el-col :span="5" class="button-col">
         <el-row>
           <el-button-group>
-            <el-button class='action' size="medium" v-on:click="urlencode">URIEncode</el-button>
-            <el-button class='action' size="medium" v-on:click="urlallencode">URIEncodeC</el-button>
-            <el-button class='action' size="medium" v-on:click="urldecode">URIDecode</el-button>
+            <el-button class='action' size="medium" v-on:click="urlencode">URL编码</el-button>
+            <el-button class='action' size="medium" v-on:click="urlallencode">URL全编码</el-button>
+            <el-button class='action' size="medium" v-on:click="urldecode">URL解码</el-button>
           </el-button-group>
         </el-row>
         <el-row>
           <el-button-group>
-            <el-button class='action' size="medium" v-on:click="b64encode">Base64Encode</el-button>
-            <el-button class='action' size="medium" v-on:click="b64decode">Base64Decode</el-button>
+            <el-button class='action' size="small" v-on:click="b64encode">Base64编码</el-button>
+            <el-button class='action' size="small" v-on:click="b64decode">Base64解码</el-button>
           </el-button-group>
-        </el-row>
-        <el-row>
           <el-button-group>
-              <el-button class='action' size="medium" v-on:click="hexencode">HexEncode</el-button>
-              <el-button class='action' size="medium" v-on:click="hexdecode">HexDecode</el-button>
+            <el-button class='action' size="small" v-on:click="hexencode">Hex 编码</el-button>
+            <el-button class='action' size="small" v-on:click="hexdecode">Hex 解码</el-button>
           </el-button-group>
         </el-row>
         <el-row>
@@ -48,8 +46,8 @@
         </el-row>
         <el-row>
           <el-button-group>
-              <el-button class='action' size="medium" v-on:click="unicodeencode">UnicodeEncode</el-button>
-              <el-button class='action' size="medium" v-on:click="unicodedecode">UnicodeDecode</el-button>
+              <el-button class='action' size="medium" v-on:click="unicodeencode">Unicode编码</el-button>
+              <el-button class='action' size="medium" v-on:click="unicodedecode">Unicode解码</el-button>
           </el-button-group>
         </el-row>
         <el-row>
@@ -77,6 +75,28 @@
               <el-button class='action' size="small" v-on:click="js16encode">JS16en</el-button>
               <el-button class='action' size="small" v-on:click="js16decode">JS16de</el-button>
           </el-button-group>
+        </el-row>
+        <el-row>
+          <div class="hash">
+          <el-select v-model="scale_value_from" size='small' style="width:100px" placeholder="Hash">
+              <el-option
+                v-for="item in scale"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+          </el-select>
+          =>
+          <el-select v-model="scale_value_to" size='small' style="width:100px" placeholder="Hash">
+              <el-option
+                v-for="item in scale"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+          </el-select>
+          <el-button class='action' size="medium" v-on:click="scalConvert">进制转换</el-button>
+          </div>
         </el-row>
         <el-row>
           <el-button-group>
@@ -148,7 +168,27 @@ export default {
           label: 'SHA512'
         }
       ],
-      value: 'md5'
+      value: 'md5',
+      scale: [
+        {
+          value: '2',
+          label: '2'
+        },
+        {
+          value: '8',
+          label: '8'
+        },
+        {
+          value: '10',
+          label: '10'
+        },
+        {
+          value: '16',
+          label: '16'
+        }
+      ],
+      scale_value_from: '10',
+      scale_value_to: '16'
     }
   },
   methods: {
@@ -307,6 +347,71 @@ export default {
             let result = eval(this.text.input)
             this.output(result)
         } catch (e) {}
+    },
+    scalConvert () {
+      var input_text = this.text.input;
+      var input_scale = this.scale_value_from;
+      var output_scale = this.scale_value_to;
+      var result = '';
+      switch (input_scale){
+        case '2':
+          input_text = parseInt(input_text, 2);
+          switch (output_scale) {
+            case '10':
+              result = input_text.toString(10);
+              break;
+            case '8':
+              result = input_text.toString(8);
+              break;
+            case '16':
+              result = input_text.toString(16);
+              break;
+          }
+          break;
+        case '8':
+          input_text = parseInt(input_text, 8);
+          switch (output_scale) {
+            case '2':
+              result = input_text.toString(2);
+              break;
+            case '10':
+              result = input_text.toString(10);
+              break;
+            case '16':
+              result = input_text.toString(16);
+              break;
+          }
+          break;
+        case '10':
+          input_text = parseInt(input_text, 10);
+          switch (output_scale) {
+            case '2':
+              result = input_text.toString(2);
+              break;
+            case '8':
+              result = input_text.toString(8);
+              break;
+            case '16':
+              result = input_text.toString(16);
+              break;
+          }
+          break;
+        case '16':
+          input_text = parseInt(input_text, 16);
+          switch (output_scale) {
+            case '2':
+              result = input_text.toString(2);
+              break;
+            case '8':
+              result = input_text.toString(8);
+              break;
+            case '10':
+              result = input_text.toString(10);
+              break;
+          }
+          break;
+      }
+      this.output(result);
     }
   },
 }

@@ -15,6 +15,7 @@
             </el-badge>
         </el-menu-item>
         <el-menu-item index="/probe">probe</el-menu-item>
+        <el-menu-item index="/json">json</el-menu-item>
         <el-menu-item index="/about">about</el-menu-item>
         <el-button type="text" size="small" class="logout" v-on:click="logout()">Logout</el-button>
     </el-menu>
