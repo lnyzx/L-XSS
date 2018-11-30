@@ -89,3 +89,9 @@ XSS 探针生成，XSS模板，Cheatsheet
 ### 其他
 
 开发笔记可以看我博客
+
+### TODO
+
+- [ ] 集成reverse shell manager
+
+- [ ] 考虑增加dns
