@@ -66,15 +66,15 @@ textarea:focus, input:focus {
   border-color: transparent !important;
 }
 
-input::-webkit-input-placeholder { color: #FFD04B;}
-input:-moz-placeholder { color: #FFD04B;}
-input::-moz-placeholder { color: #FFD04B;}
-input:-ms-input-placeholder { color: #FFD04B;}
+input::-webkit-input-placeholder { color: #1755d1;}
+input:-moz-placeholder { color: #1755d1;}
+input::-moz-placeholder { color: #1755d1;}
+input:-ms-input-placeholder { color: #1755d1;}
 
-textarea::-webkit-input-placeholder { color: #FFD04B;}
-textarea:-moz-placeholder { color: #FFD04B;}
-textarea::-moz-placeholder { color: #FFD04B;}
-textarea:-ms-input-placeholder { color: #FFD04B;}
+textarea::-webkit-input-placeholder { color: #1755d1;}
+textarea:-moz-placeholder { color: #1755d1;}
+textarea::-moz-placeholder { color: #1755d1;}
+textarea:-ms-input-placeholder { color: #1755d1;}
 
 /*---------------------------------------------*/
 button {
@@ -106,11 +106,11 @@ iframe {
   font-family: SourceSansPro-Regular;
   font-size: 16px;
   line-height: 1.4;
-  color: #FFD04B;
+  color: #1755d1;
 }
 
 .hov1:hover {
-  color: #FFD04B;
+  color: #1755d1;
   text-decoration: underline;
 }
 
@@ -179,7 +179,7 @@ iframe {
   display: block;
   font-family: SourceSansPro-Bold;
   font-size: 30px;
-  color: #FFD04B;
+  color: #1755d1;
   line-height: 1.2;
   text-align: center;
 }
@@ -197,7 +197,7 @@ iframe {
 .input100 {
   font-family: SourceSansPro-Bold;
   font-size: 16px;
-  color: #FFD04B;
+  color: #1755d1;
   line-height: 1.2;
 
   display: block;
@@ -264,7 +264,7 @@ iframe {
   padding: 0 20px;
   min-width: 160px;
   height: 50px;
-  background-color: #ffd04b;
+  background-color: #1755d1;
   border-radius: 25px;
 
   font-family: SourceSansPro-SemiBold;
@@ -278,20 +278,20 @@ iframe {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 
-  box-shadow: 0 10px 30px 0px #FFE28E;
-  -moz-box-shadow: 0 10px 30px 0px #FFE28E;
-  -webkit-box-shadow: 0 10px 30px 0px #FFE28E;
-  -o-box-shadow: 0 10px 30px 0px #FFE28E;
-  -ms-box-shadow: 0 10px 30px 0px #FFE28E;
+  box-shadow: 0 10px 30px 0px #b9ccf1;
+  -moz-box-shadow: 0 10px 30px 0px #b9ccf1;
+  -webkit-box-shadow: 0 10px 30px 0px #b9ccf1;
+  -o-box-shadow: 0 10px 30px 0px #b9ccf1;
+  -ms-box-shadow: 0 10px 30px 0px #b9ccf1;
 }
 
 .login100-form-btn:hover {
-  background-color: #FFD04B;
-  box-shadow: 0 10px 30px 0px #ffd04b;
-  -moz-box-shadow: 0 10px 30px 0px #ffd04b;
-  -webkit-box-shadow: 0 10px 30px 0px #ffd04b;
-  -o-box-shadow: 0 10px 30px 0px #ffd04b;
-  -ms-box-shadow: 0 10px 30px 0px #ffd04b;
+  background-color: #1755d1;
+  box-shadow: 0 10px 30px 0px #1755d1;
+  -moz-box-shadow: 0 10px 30px 0px #1755d1;
+  -webkit-box-shadow: 0 10px 30px 0px #1755d1;
+  -o-box-shadow: 0 10px 30px 0px #1755d1;
+  -ms-box-shadow: 0 10px 30px 0px #1755d1;
 }
 
 
