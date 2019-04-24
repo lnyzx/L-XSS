@@ -29,7 +29,7 @@
                 </el-option>
               </el-select>
             </el-col>
-            <el-col :span="6"><el-button class='action' type="warning" size="medium" v-on:click="createCSRF" plain>Create CSRF</el-button></el-col>
+            <el-col :span="6"><el-button class='action' type="primary" size="medium" v-on:click="createCSRF" plain>Create CSRF</el-button></el-col>
             <el-col :span="15">
               <el-select v-model="ajaxvalue" size='medium'>
                 <el-option
@@ -40,7 +40,7 @@
                 </el-option>
               </el-select>
             </el-col>
-            <el-col :span="6"><el-button class='action' type="warning" size="medium" v-on:click="createAJAX" plain>Create AJAX</el-button></el-col>
+            <el-col :span="6"><el-button class='action' type="primary" size="medium" v-on:click="createAJAX" plain>Create AJAX</el-button></el-col>
           </el-row>
 
           <el-row type="flex" :gutter="15">

@@ -428,16 +428,6 @@ export default {
   .el-col {
     border-radius: 4px;
   }
-  .action:hover {
-    background-color: #FEF6E0;
-    color: #D7B040;
-    border-color:#FEF6E0;
-  }
-  .action:focus {
-    background-color: #FEF6E0;
-    color: #D7B040;
-    border-color:#ffd04b;
-  }
 
   .button-col {
     min-width: 410px;

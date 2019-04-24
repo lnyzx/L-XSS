@@ -5,7 +5,6 @@
         :default-active="$route.path"
         mode="horizontal"
         :router="true"
-        active-text-color="#ffd04b"
         >
         <li class="menu-header"><strong>L`XSS</strong></li>
         <el-menu-item index="/">encode/decode</el-menu-item>
