@@ -1,0 +1,11 @@
+version: '2.0'
+
+services:
+  nginx:
+    restart: always
+    image: nginx:stable-alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - ./:/var/www
