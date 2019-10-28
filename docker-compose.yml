@@ -1,11 +1,10 @@
-version: '2.0'
+version: '2'
 
 services:
   nginx:
     restart: always
     image: nginx:stable-alpine
-    ports:
-      - 80:80
+    network_mode: "host"
     volumes:
-      - ./conf.d:/etc/nginx/conf.d
-      - ./:/var/www
+      - ./conf.d:/etc/nginx/conf.d/default.conf
+      - ./frontend/:/var/www/frontend/
